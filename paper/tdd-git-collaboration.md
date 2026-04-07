@@ -82,13 +82,15 @@ Deadline: YYYY-MM-DD (可选)
 
 ### 2.2 字段说明
 
-| 字段 | 必填 | 说明 |
-|------|------|------|
-| Status | 是 | 当前状态，见状态流转 |
-| Owner | 是 | TDD 负责人 |
-| Reviewers | 是 | 评审人列表 |
-| Depends On | 否 | 依赖的其他 TDD |
-| Deadline | 否 | 交付时间约束 |
+
+| 字段         | 必填  | 说明         |
+| ---------- | --- | ---------- |
+| Status     | 是   | 当前状态，见状态流转 |
+| Owner      | 是   | TDD 负责人    |
+| Reviewers  | 是   | 评审人列表      |
+| Depends On | 否   | 依赖的其他 TDD  |
+| Deadline   | 否   | 交付时间约束     |
+
 
 ---
 
@@ -107,6 +109,7 @@ main (已 approved/locked 的 TDD 集合)
 ```
 
 **规则**：
+
 - `main` 分支存放已 approved 和 locked 的 TDD
 - 每个 TDD 一个分支：`tdd/<ID>-<简短描述>`
 - 每个 TDD 一个 PR，便于追踪讨论
@@ -145,12 +148,14 @@ main (已 approved/locked 的 TDD 集合)
 
 ### 3.3 Commit Message 约定
 
-| 前缀 | 用途 | 示例 |
-|------|------|------|
-| `tdd:` | TDD 文档变更 | `tdd: draft TDD-001` |
-| `tdd-review:` | 根据 review 修改 | `tdd-review: address comments on Decisions` |
-| `tdd-lock:` | 锁定 TDD | `tdd-lock: TDD-001 开发开始` |
-| `tdd-supersede:` | 废弃并替代 | `tdd-supersede: TDD-001 by TDD-001-v2` |
+
+| 前缀               | 用途           | 示例                                          |
+| ---------------- | ------------ | ------------------------------------------- |
+| `tdd:`           | TDD 文档变更     | `tdd: draft TDD-001`                        |
+| `tdd-review:`    | 根据 review 修改 | `tdd-review: address comments on Decisions` |
+| `tdd-lock:`      | 锁定 TDD       | `tdd-lock: TDD-001 开发开始`                    |
+| `tdd-supersede:` | 废弃并替代        | `tdd-supersede: TDD-001 by TDD-001-v2`      |
+
 
 ---
 
@@ -158,14 +163,16 @@ main (已 approved/locked 的 TDD 集合)
 
 ### 4.1 状态定义
 
-| 状态 | 含义 | 可转换到 |
-|------|------|----------|
-| `exploring` | 探索中，方案未定 | `draft` |
-| `draft` | 起草中，可自由修改 | `review`, `deprecated` |
-| `review` | PR opened，等待评审 | `approved`, `draft` |
-| `approved` | 已合并 main，开发前 | `locked`, `deprecated` |
-| `locked` | 开发已开始，禁止修改 | `deprecated` |
-| `deprecated` | 已废弃 | — |
+
+| 状态           | 含义             | 可转换到                   |
+| ------------ | -------------- | ---------------------- |
+| `exploring`  | 探索中，方案未定       | `draft`                |
+| `draft`      | 起草中，可自由修改      | `review`, `deprecated` |
+| `review`     | PR opened，等待评审 | `approved`, `draft`    |
+| `approved`   | 已合并 main，开发前   | `locked`, `deprecated` |
+| `locked`     | 开发已开始，禁止修改     | `deprecated`           |
+| `deprecated` | 已废弃            | —                      |
+
 
 ### 4.2 状态流转图
 
@@ -175,11 +182,11 @@ main (已 approved/locked 的 TDD 集合)
                     └──────┬───────┘
                            │ 方案稳定
                            ▼
-                    ┌──────────────┐
+                   ┌──────────────┐
          ┌─────────│    draft     │◄────────────┐
          │         └──────┬───────┘             │
          │                │ 创建 PR              │
-         │                ▼                      │
+         │                ▼                     │
          │         ┌──────────────┐             │
          │         │    review    │─── request ─┘
          │         └──────┬───────┘   changes
@@ -215,6 +222,7 @@ main (已 approved/locked 的 TDD 集合)
 #### 5.1.1 场景描述
 
 TDD-A 依赖 TDD-B。常见情况：
+
 - 基础设施 TDD → 业务功能 TDD
 - 公共组件 TDD → 使用方 TDD
 - API 定义 TDD → 客户端 TDD
@@ -299,6 +307,7 @@ TDD-002 (基础设施-缓存)
 #### 5.2.1 场景描述
 
 单个 TDD 发现过大，需要拆分成多个子 TDD。触发条件：
+
 - Decisions 超过 10 条
 - Contract 涉及多个独立模块
 - 预估开发周期超过 2 周
@@ -405,6 +414,7 @@ TDD-X (过大)
 #### 5.3.1 场景描述
 
 TDD 已 locked（开发已开始），但发现：
+
 - Decisions 有重大错误
 - Contract 接口定义不合理
 - 需求发生重大变更
@@ -438,19 +448,19 @@ TDD 已 locked（开发已开始），但发现：
 │    │      **Supersede Reason: [原因]**                      │
 │    │                                                        │
 │    ├── 3. 影响评估                                           │
-│    │      - 列出已完成的工作                                 │
-│    │      - 评估需要回滚/修改的范围                          │
-│    │      - 记录在 TDD-001-v2 的 Impact Assessment 段       │
+│    │      - 列出已完成的工作                                  │
+│    │      - 评估需要回滚/修改的范围                            │
+│    │      - 记录在 TDD-001-v2 的 Impact Assessment 段        │
 │    │                                                        │
 │    ├── 4. 走标准 review 流程                                 │
 │    │      Reviewers 必须包含：                               │
 │    │      - 原 TDD Owner                                    │
-│    │      - 已开发部分的 Owner                               │
+│    │      - 已开发部分的 Owner                                │
 │    │      - 依赖方 TDD Owner                                 │
 │    │                                                        │
 │    └── 5. approved 后执行变更                                │
-│           - 开发团队根据 Impact Assessment 调整计划          │
-│           - 依赖方评估是否需要同步修改                       │
+│           - 开发团队根据 Impact Assessment 调整计划            │
+│           - 依赖方评估是否需要同步修改                          │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -498,18 +508,21 @@ TDD 已 locked（开发已开始），但发现：
 #### 5.4.1 场景描述
 
 多个 TDD 并行开发，存在交集：
+
 - Contract 定义了相同/相似的接口
 - Decisions 对同一问题有不同判断
 - 共享依赖同一基础设施 TDD
 
 #### 5.4.2 冲突类型
 
-| 类型 | 表现 | 严重程度 |
-|------|------|----------|
-| Contract 冲突 | 两个 TDD 定义了同名但不同签名的函数 | 高 |
-| Decisions 冲突 | 两个 TDD 对同一技术选型有不同决策 | 高 |
-| 依赖版本冲突 | 依赖同一 TDD 但期望不同版本 | 中 |
-| 命名冲突 | 使用了相同命名但含义不同 | 低 |
+
+| 类型           | 表现                   | 严重程度 |
+| ------------ | -------------------- | ---- |
+| Contract 冲突  | 两个 TDD 定义了同名但不同签名的函数 | 高    |
+| Decisions 冲突 | 两个 TDD 对同一技术选型有不同决策  | 高    |
+| 依赖版本冲突       | 依赖同一 TDD 但期望不同版本     | 中    |
+| 命名冲突         | 使用了相同命名但含义不同         | 低    |
+
 
 #### 5.4.3 检测机制
 
@@ -575,6 +588,7 @@ Reviewers 在 review 时需检查：
 **触发条件**：多个 TDD 发现关联紧密，分开维护成本高
 
 **处理流程**：
+
 1. 创建合并 TDD（如 TDD-ABC）
 2. 原 TDD 标注 `Status: merged into TDD-ABC`
 3. 原 TDD 分支关闭
@@ -585,6 +599,7 @@ Reviewers 在 review 时需检查：
 **触发条件**：需求变更、技术方案调整
 
 **处理流程**：
+
 1. Status 改为 `deprecated`
 2. 添加废弃原因：`Deprecated Reason: [原因]`
 3. 若已有开发进度，评估回滚范围
@@ -595,6 +610,7 @@ Reviewers 在 review 时需检查：
 **场景**：Team A 的 TDD 依赖 Team B 的 TDD
 
 **处理流程**：
+
 1. Reviewers 包含跨团队代表
 2. 依赖方 Team 需在 PR 中 approve
 3. 明确 handoff 时间点和责任人
@@ -605,6 +621,7 @@ Reviewers 在 review 时需检查：
 **场景**：技术方案不确定，需要边探索边定义
 
 **处理流程**：
+
 1. 创建 `Status: exploring` 的 TDD
 2. 可多次迭代修改 Decisions/Contract
 3. 方案稳定后转为 `draft`
@@ -615,6 +632,7 @@ Reviewers 在 review 时需检查：
 **场景**：TDD 依赖外部系统/第三方服务
 
 **处理**：
+
 - `Depends On` 标注外部依赖（非 TDD 格式）
 - 增加风险评估段
 - 外部接口变更时触发重新 review
@@ -625,12 +643,14 @@ Reviewers 在 review 时需检查：
 
 ### 7.1 自动化检查
 
-| 检查项 | 触发时机 | 动作 |
-|--------|----------|------|
-| 依赖状态 | PR 创建 | 检查 Depends On 是否已 approved |
-| 循环依赖 | PR 创建 | 检测并阻止 |
-| Contract 冲突 | PR 创建 | 扫描并警告 |
-| 状态一致性 | 状态变更 | 更新依赖图 |
+
+| 检查项         | 触发时机  | 动作                         |
+| ----------- | ----- | -------------------------- |
+| 依赖状态        | PR 创建 | 检查 Depends On 是否已 approved |
+| 循环依赖        | PR 创建 | 检测并阻止                      |
+| Contract 冲突 | PR 创建 | 扫描并警告                      |
+| 状态一致性       | 状态变更  | 更新依赖图                      |
+
 
 ### 7.2 文档生成
 
@@ -701,19 +721,22 @@ Deadline: (可选)
 ### B. 状态变更 Checklist
 
 **draft → review**:
-- [ ] 所有必填字段已填写
-- [ ] Decisions 有明确理由
-- [ ] Contract 定义清晰
-- [ ] 已创建 PR
+
+- 所有必填字段已填写
+- Decisions 有明确理由
+- Contract 定义清晰
+- 已创建 PR
 
 **review → approved**:
-- [ ] 所有 Reviewers 已 approve
-- [ ] 依赖 TDD 已 approved
-- [ ] 无未解决的冲突
+
+- 所有 Reviewers 已 approve
+- 依赖 TDD 已 approved
+- 无未解决的冲突
 
 **approved → locked**:
-- [ ] 开发工作已分配
-- [ ] 开发团队已确认理解 TDD
+
+- 开发工作已分配
+- 开发团队已确认理解 TDD
 
 ### C. 相关决策
 
@@ -724,6 +747,9 @@ Deadline: (可选)
 
 **文档历史**
 
-| 版本 | 日期 | 变更 |
-|------|------|------|
-| v1.0 | 2026-04-08 | 初版 |
+
+| 版本   | 日期         | 变更  |
+| ---- | ---------- | --- |
+| v1.0 | 2026-04-08 | 初版  |
+
+

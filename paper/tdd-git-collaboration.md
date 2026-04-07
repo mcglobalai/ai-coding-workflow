@@ -24,14 +24,14 @@
 
 ### 2.1 标准格式
 
-```markdown
+```
 # [TDD-ID]: [标题]
 
-**Status**: draft | exploring | review | approved | locked | deprecated
-**Owner**: @username
-**Reviewers**: [@username, ...]
-**Depends On**: [TDD-ID, ...] (可选)
-**Deadline**: YYYY-MM-DD (可选)
+Status: draft | exploring | review | approved | locked | deprecated
+Owner: @username
+Reviewers: [@username, ...]
+Depends On: [TDD-ID, ...] (可选)
+Deadline: YYYY-MM-DD (可选)
 
 ---
 
@@ -49,10 +49,8 @@
 
 输入输出边界。类型定义或接口声明。
 
-```typescript
-// 示例
-function process(input: InputType): OutputType
-```
+    // 示例
+    function process(input: InputType): OutputType
 
 ## Rules
 
@@ -64,10 +62,8 @@ function process(input: InputType): OutputType
 
 手写验证的校准用例。2-3 个，AI 将基于此扩展。
 
-```
-Input: ...
-Output: ...
-```
+    Input: ...
+    Output: ...
 
 ## Done When
 
@@ -660,14 +656,14 @@ Reviewers 在 review 时需检查：
 
 ### A. TDD 模板
 
-```markdown
+```
 # [TDD-ID]: [标题]
 
-**Status**: draft
-**Owner**: @username
-**Reviewers**: [@reviewer1, @reviewer2]
-**Depends On**: (可选)
-**Deadline**: (可选)
+Status: draft
+Owner: @username
+Reviewers: [@reviewer1, @reviewer2]
+Depends On: (可选)
+Deadline: (可选)
 
 ---
 
@@ -681,9 +677,7 @@ Reviewers 在 review 时需检查：
 
 ## Contract
 
-```typescript
-// 输入输出定义
-```
+    // 输入输出定义
 
 ## Rules
 
@@ -691,10 +685,8 @@ Reviewers 在 review 时需检查：
 
 ## Examples
 
-```
-Input: ...
-Output: ...
-```
+    Input: ...
+    Output: ...
 
 ## Done When
 

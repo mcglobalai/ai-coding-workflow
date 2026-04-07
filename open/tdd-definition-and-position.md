@@ -39,4 +39,9 @@
 
 ## 状态
 
-Open
+**Closed** — 已由 D001 确认：TDD = Tech Design Document
+
+## 解决方案
+
+- TDD 定义：Tech Design Document
+- "契约文件"为旧叫法，不再使用

@@ -2,7 +2,7 @@
 
 **Status:** Open
 **Opened:** YYYY-MM-DD
-**Origin:** log/YYYY-MM-DD-xxx.md
+**Origin:** 1-log/YYYY-MM-DD-xxx.md
 
 ## Question
 

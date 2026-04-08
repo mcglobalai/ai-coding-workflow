@@ -2,7 +2,7 @@
 
 **Status:** Accepted
 **Date:** YYYY-MM-DD
-**Origin:** log/YYYY-MM-DD-xxx.md
+**Origin:** 1-log/YYYY-MM-DD-xxx.md
 **Participants:** [填写]
 
 ## Question

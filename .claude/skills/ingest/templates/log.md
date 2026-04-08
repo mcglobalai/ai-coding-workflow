@@ -11,6 +11,6 @@
 
 ## Outcomes
 
-- → open/xxx.md
-- → decisions/NNN-xxx.md
-- [pending confirmation] 候选 decision: ...
+- → 2-open/xxx.md
+- → 3-decisions/NNN-xxx.md
+- [pending confirmation] 候选 3-decision: ...

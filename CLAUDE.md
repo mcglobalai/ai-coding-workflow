@@ -5,20 +5,20 @@
 不是代码仓库。Git history = 讨论的时间线。
 
 ## 目录结构和流向
-inbox → log → open → decisions → paper
+0-inbox → 1-log → 2-open → 3-decisions → 4-paper
 
-- inbox/：随手想法，无格式要求，可删除
-- log/：讨论记录，按日期一文件，append-only
-- open/：未解决的问题，一文件一问题，可编辑
-- decisions/：锁定的决策，一文件一问题的答案，immutable
-- paper/：白皮书正文 + notes 编辑注释层
+- 0-inbox/：随手想法，无格式要求，可删除
+- 1-log/：讨论记录，按日期一文件，append-only
+- 2-open/：未解决的问题，一文件一问题，可编辑
+- 3-decisions/：锁定的决策，一文件一问题的答案，immutable
+- 4-paper/：白皮书正文 + notes 编辑注释层
 
 ## 关键规则
-- decisions/ 中的文件一旦 commit 永不修改，只能 supersede
-- log/ 只追加不修改
+- 3-decisions/ 中的文件一旦 commit 永不修改，只能 supersede
+- 1-log/ 只追加不修改
 - 不要 squash 或 rebase
-- paper 的每次实质修改应对应一个 decision
-- 不确定是否已达成共识的内容，不要放进 decisions，留在 log 里标记 pending
+- 4-paper 的每次实质修改应对应一个 3-decisions
+- 不确定是否已达成共识的内容，不要放进 3-decisions，留在 1-log 里标记 pending
 
 ## Commit message 前缀
 discuss: / decide: / draft: / question: / idea: / supersede: / close: / note:
